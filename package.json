@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bun-types": "^1.0.12",
+    "vitest": "^0.34.6"
+  }
+}
