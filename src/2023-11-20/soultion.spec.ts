@@ -41,7 +41,7 @@ describe("4번 문제: https://school.programmers.co.kr/learn/courses/30/lessons
   }); 
 })
 
-describe("3번 문제: https://school.programmers.co.kr/learn/courses/30/lessons/120820", () => {
+describe("5번 문제: https://school.programmers.co.kr/learn/courses/30/lessons/120820", () => {
   test("", () => {
     expect(s[5](40)).toBe(1983);
   });
