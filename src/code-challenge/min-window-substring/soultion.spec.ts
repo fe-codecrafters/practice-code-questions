@@ -1,0 +1,10 @@
+// 1. For input ["aaabaaddae", "aed"] the output was incorrect. The correct output is dae
+// 2. For input ["aabdccdbcacd", "aad"] the output was incorrect. The correct output is aabd
+// 3. For input ["ahffaksfajeeubsne", "jefaa"] the output was incorrect. The correct output is aksfaje
+// 4. For input ["aaffhkksemckelloe", "fhea"] the output was incorrect. The correct output is affhkkse
+// 5. For input ["aaaaaaaaa", "a"] the output was incorrect. The correct output is a
+// 6. For input ["aaffsfsfasfasfasfasfasfacasfafe", "fafe"] the output was incorrect. The correct output is fafe
+// 7. For input ["aaffsfsfasfasfasfasfasfacasfafe", "fafsf"] the output was incorrect. The correct output is affsf
+// 8. For input ["vvavereveaevafefaef", "vvev"] the output was incorrect. The correct output is vvave
+// 9. For input ["caae", "cae"] the output was incorrect. The correct output is caae
+// 10. For input ["cccaabbbbrr", "rbac"] the output was incorrect. The correct output is caabbbbr
