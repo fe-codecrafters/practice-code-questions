@@ -37,5 +37,10 @@ describe('Character Sets', () => {
     expect(/[^a-zA-Z0-9]/.test('regex REGEX 101')).toBe(true)
     expect(/[^a-zA-Z0-9]/.test('!@#$%^')).toBe(true)
   })
+})
 
+describe('프로그레머스 TIL', () => {
+  test('remove all char', () => {
+    expect("aAb1B2cC34oOp".replace(/[a-zA-Z]/g, '')).toBe('1234')
+  })
 })
