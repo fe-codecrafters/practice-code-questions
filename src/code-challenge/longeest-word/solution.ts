@@ -1,7 +1,8 @@
-function LongestWord(sen) { 
-  return sen.split(' ')
-  .map(s => s.replace(/[^a-zA-Z0-9]/g, ''))
-  .reduce((acc, cur) => acc.length >= cur.length ? acc : cur); 
+export function LongestWord(sen: string) {
+  return sen
+    .split(" ")
+    .map((s) => s.replace(/[^a-zA-Z0-9]/g, ""))
+    .reduce((acc, cur) => (acc.length >= cur.length ? acc : cur));
 }
 
 // 1. For input "9???1???9???1???9" the output was incorrect. The correct output is true

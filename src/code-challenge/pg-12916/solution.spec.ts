@@ -1,6 +1,5 @@
-import { expect, test, describe } from "vitest";
-import { solution  } from "./solution";
+import { test, describe } from "bun:test";
 
-describe('pg-12916: 문자열 내 p와 y의 개수', () => {
-  test('문자열 내 p와 y의 개수가 같으면 true', () => {})
-})
+describe("pg-12916: 문자열 내 p와 y의 개수", () => {
+  test("문자열 내 p와 y의 개수가 같으면 true", () => {});
+});

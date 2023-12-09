@@ -1,18 +1,18 @@
-function MinWindowSubstring(strArr) { 
+export function solution(strArr: [string, string]) {
   const [N, K] = strArr;
 
   // input: [string, string]
-    // 1 <= N <= 50
-    // 1 <= K <= 50
-    // all lowercase
+  // 1 <= N <= 50
+  // 1 <= K <= 50
+  // all lowercase
   // output: string
-    // the smallest substring of N that contains all the characters in K.
+  // the smallest substring of N that contains all the characters in K.
   // select substring
 
   // check if it sub all char
-  function getStrCount (str) {
+  function getStrCount(str: string) {
     // return [...K].every(c => sub.includes(c))
-    const countObj = {};
+    const countObj: Record<string, number> = {};
     for (const char of str) {
       if (!countObj[char]) {
         countObj[char] = 1;
@@ -20,41 +20,43 @@ function MinWindowSubstring(strArr) {
         countObj[char]++;
       }
     }
-    return countObj
+    return countObj;
   }
 
   // K와 숫자가 같은지 비교, sub에 있는게 K에는 있을 필요가 없지만 K에 있는 것은 sub에 무조건 다 있어야 함 -> O(N)
-  function compareStrCount (sub, K) {
+  function compareStrCount(
+    sub: Record<number, number>,
+    K: Record<number, number>,
+  ) {
     for (const key in K) {
-      if (!sub[key]) { 
-        return false; 
+      if (!sub[key]) {
+        return false;
       } else {
         if (sub[key] < K[key]) return false;
       }
     }
-    return true
-  } 
+    return true;
+  }
 
   const KCount = getStrCount(K);
 
   let sub = N;
   for (let i = 0; i < N.length + 1; i++) {
     for (let j = i + 1; j < N.length + 1; j++) {
-      let temp = N.slice(i, j)
-      const tempCount = getStrCount(temp)
+      const temp = N.slice(i, j);
+      const tempCount = getStrCount(temp);
       if (compareStrCount(tempCount, KCount) && sub.length > temp.length) {
-        sub = temp
-      } 
+        sub = temp;
+      }
     }
   }
   // affhkkse
   // { a: 1, f: 2, h: 1, k: 2, s: 1, e: 1 } { f: 1, h: 1, e: 1, a: 1 }
 
-
-  return sub; 
+  return sub;
 }
-   
-// keep this function call here 
+
+// keep this function call here
 
 // console.log(MinWindowSubstring(['abcdefgh']));
 
@@ -69,21 +71,21 @@ function MinWindowSubstring(strArr) {
 
 // ---
 
-function MinWindowSubstring2(strArr) { 
+export function MinWindowSubstring2(strArr: [string, string]) {
   const [N, K] = strArr;
 
   // input: [string, string]
-    // 1 <= N <= 50
-    // 1 <= K <= 50
-    // all lowercase
+  // 1 <= N <= 50
+  // 1 <= K <= 50
+  // all lowercase
   // output: string
-    // the smallest substring of N that contains all the characters in K.
+  // the smallest substring of N that contains all the characters in K.
   // select substring
 
   // check if it sub all char
-  function getStrCount (str) {
+  function getStrCount(str: string) {
     // return [...K].every(c => sub.includes(c))
-    const countObj = {};
+    const countObj: Record<string, number> = {};
     for (const char of str) {
       if (!countObj[char]) {
         countObj[char] = 1;
@@ -91,52 +93,55 @@ function MinWindowSubstring2(strArr) {
         countObj[char]++;
       }
     }
-    return countObj
+    return countObj;
   }
 
   const KCount = getStrCount(K);
 
   // K와 숫자가 같은지 비교, sub에 있는게 K에는 있을 필요가 없지만 K에 있는 것은 sub에 무조건 다 있어야 함 -> O(N)
-  function compareStrCount (sub, K) {
+  function compareStrCount(
+    sub: Record<string, number>,
+    K: Record<string, number>,
+  ) {
     for (const key in K) {
-      if (!sub[key]) { 
-        return false; 
+      if (!sub[key]) {
+        return false;
       } else {
         if (sub[key] < K[key]) return false;
       }
     }
-    return true
-  } 
+    return true;
+  }
 
   let sub = N;
   let leftP = 0;
   let rightP = 1;
-  let plusLeftOrRight = 'right';
+  let plusLeftOrRight = "right";
   while (rightP <= N.length) {
-      // console.log(sub, sub.length, leftP, rightP, plusLeftOrRight)
-      let temp = N.slice(leftP, rightP)
-      const tempCount = getStrCount(temp)
-      let isMatch = false;
-      if (compareStrCount(tempCount, KCount) && sub.length >= temp.length) {
-        sub = temp
-        isMatch = true;
-      } 
-      if (isMatch) {
-        plusLeftOrRight = 'left'
-      }
-      plusLeftOrRight === 'left' ? leftP++ : rightP++
-      if (leftP === rightP) {
-        plusLeftOrRight === 'right'
-        rightP++
-      }
+    // console.log(sub, sub.length, leftP, rightP, plusLeftOrRight)
+    const temp = N.slice(leftP, rightP);
+    const tempCount = getStrCount(temp);
+    let isMatch = false;
+    if (compareStrCount(tempCount, KCount) && sub.length >= temp.length) {
+      sub = temp;
+      isMatch = true;
+    }
+    if (isMatch) {
+      plusLeftOrRight = "left";
+    }
+    plusLeftOrRight === "left" ? leftP++ : rightP++;
+    if (leftP === rightP) {
+      plusLeftOrRight === "right";
+      rightP++;
+    }
   }
   // affhkkse
   // { a: 1, f: 2, h: 1, k: 2, s: 1, e: 1 } { f: 1, h: 1, e: 1, a: 1 }
 
-  return sub; 
+  return sub;
 }
-   
-// keep this function call here 
+
+// keep this function call here
 
 // console.log(MinWindowSubstring(['abcdefgh']));
 
@@ -148,4 +153,3 @@ function MinWindowSubstring2(strArr) {
 // count가 클 때 O
 
 // ['abcdefghabcdzzfzzf', 'fffzz'] -> fghabcdzzfzzf
-

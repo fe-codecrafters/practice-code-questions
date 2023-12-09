@@ -1,7 +1,8 @@
 export const solutions = {
   1: (num1, num2) => num1 % num2,
   2: (num1, num2) => num1 + num2,
-  3: (num1: number, num2: number) => parseInt(String(Number(num1 / num2) * 1000), 10),
+  3: (num1: number, num2: number) =>
+    parseInt(String(Number(num1 / num2) * 1000), 10),
   4: (angle: number) => {
     if (angle < 90) return 1;
     if (angle === 90) return 2;
@@ -23,4 +24,4 @@ export const solutions = {
     }
     return 0;
   },
-}
+};

@@ -1,4 +1,4 @@
-export default function s(arr) { 
+export default function s(arr) {
   if (arr[1] % arr[0]) return -1;
 
   let isArithmetic = true;
@@ -10,7 +10,7 @@ export default function s(arr) {
   }
 
   let isGeometric = true;
-  const base = arr[1] / arr[0] 
+  const base = arr[1] / arr[0];
   for (let i = 1; i < arr.length; i++) {
     if (arr[i] / arr[i - 1] !== base) {
       isGeometric = false;
@@ -18,8 +18,7 @@ export default function s(arr) {
     }
   }
 
-  if (isArithmetic) return 'Arithmetic'
-  if (isGeometric) return 'Geometric'
-  return -1
+  if (isArithmetic) return "Arithmetic";
+  if (isGeometric) return "Geometric";
+  return -1;
 }
-
